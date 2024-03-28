@@ -1,0 +1,683 @@
+{
+	"info": {
+		"_postman_id": "56e4ecdc-2f13-4522-9e1e-4c482143c43b",
+		"name": "Authorization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Without Autorization",
+			"item": [
+				{
+					"name": "Unauthorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6247bf0-2196-4d17-85df-7968f582d3b1",
+								"exec": [
+									"pm.test(\"Sending unauthorized request to unauthorized endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "93e36d1a-e83e-4dbf-a89b-fc9b28fa0465",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseApiUrl}}/test"
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending unauthorized request to authorized endpoint should return 401\", function(){\r",
+									"    pm.response.to.have.status(401);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "64ca5a5b-4399-4e18-8029-87284d37e458",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseApiUrl}}/test/authorized"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending unauthorized request to admin endpoint should return 401\", function(){\r",
+									"    pm.response.to.have.status(401);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "2cbd16ff-1c6d-4542-bbde-3fa9697faea5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseApiUrl}}/test/admin"
+					},
+					"response": []
+				}
+			],
+			"id": "2dbd755d-58a4-4971-9b23-464f24e4a437",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "cdc7a33d-7387-4d4c-bb9e-b5969b54318b",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "681c4d13-7c83-48f0-bbf7-5051fc97eba2",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "With common user Autorization",
+			"item": [
+				{
+					"name": "Unauthorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6247bf0-2196-4d17-85df-7968f582d3b1",
+								"exec": [
+									"pm.test(\"Sending authorized request to unauthorized endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "19ccce93-4913-4fcb-b012-f5af0fa0d952",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseApiUrl}}/test"
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending authorized request to authorized endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "e8f2ae09-2c7a-4ad7-965d-1c63e978dcc1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseApiUrl}}/test/authorized"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending authorized request to admin endpoint should return 403\", function(){\r",
+									"    pm.response.to.have.status(403);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "83a1757f-ece1-4f4b-8417-362e8b2f9cff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseApiUrl}}/test/admin"
+					},
+					"response": []
+				}
+			],
+			"id": "e05d7371-9a44-4ca9-8568-e3fa5699ad1c",
+			"auth": {
+				"type": "oauth2",
+				"oauth2": {
+					"password": "password",
+					"clientSecret": "secret",
+					"clientId": "client",
+					"accessTokenUrl": "localhost:5001/connect/token",
+					"username": "bob",
+					"grant_type": "password_credentials",
+					"tokenName": "BobToken",
+					"addTokenTo": "header"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0c288434-eac0-45e6-a05e-064edc359089",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.sendRequest(\r",
+							"    {\r",
+							"        url: pm.environment.get(\"IsTokenUrl\"),\r",
+							"        method: 'post',\r",
+							"        header: {\r",
+							"            'Content-Type': 'application/x-www-form-urlencoded'\r",
+							"        },\r",
+							"        body: {\r",
+							"            mode: 'urlencoded' ,\r",
+							"            urlencoded: [\r",
+							"               { key: 'client_id', value: pm.environment.get('ClientId') },\r",
+							"               { key: 'client_secret', value: pm.environment.get('ClientSecret') },\r",
+							"               { key: 'grant_type', value: 'password' },\r",
+							"               { key: 'username', value: pm.environment.get('CommonUserLogin') },\r",
+							"               { key: 'password', value: pm.environment.get('CommonUserPassword') }\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    function (err,res) {\r",
+							"        const token = res.json().access_token;\r",
+							"        pm.collectionVariables.set(\"Temp.CommonUserAccessToken\", token);\r",
+							"    }\r",
+							")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "173edaf0-f61b-4b31-b33c-962c28f14f22",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "With common user Autorization Copy",
+			"item": [
+				{
+					"name": "Unauthorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6247bf0-2196-4d17-85df-7968f582d3b1",
+								"exec": [
+									"pm.test(\"Sending authorized request to unauthorized endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "0cb632b6-f445-4837-8941-ba3a4ee005be",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseApiUrl}}/test"
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending authorized request to authorized endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "df1b9122-115d-4450-871c-e37ca38d4696",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseApiUrl}}/test/authorized"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending authorized request to admin endpoint should return 403\", function(){\r",
+									"    pm.response.to.have.status(403);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "21413e1f-5a19-4267-be57-e531938c288a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseApiUrl}}/test/admin"
+					},
+					"response": []
+				}
+			],
+			"id": "3b55c653-b4dd-4c98-ad8a-871b95baec9f",
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "{{Temp.CommonUserAccessToken}}"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "045da11e-3c05-477b-abd7-a399f1f2e6e2",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.sendRequest(\r",
+							"        {\r",
+							"            url: pm.environment.get(\"IsTokenUrl\"),\r",
+							"            method: 'post',\r",
+							"            header: {\r",
+							"                'Content-Type': 'application/x-www-form-urlencoded'\r",
+							"            },\r",
+							"            body: {\r",
+							"                mode: 'urlencoded',\r",
+							"                urlencoded: [\r",
+							"                    { key: 'client_id', value: pm.environment.get('ClientId') },\r",
+							"                    { key: 'client_secret', value: pm.environment.get('ClientSecret') },\r",
+							"                    { key: 'grant_type', value: 'password' },\r",
+							"                    { key: 'username', value: pm.environment.get('CommonUserLogin') },\r",
+							"                    { key: 'password', value: pm.environment.get('CommonUserPassword') }\r",
+							"                ]\r",
+							"            }\r",
+							"        },\r",
+							"        function (err, res) {\r",
+							"            const token = res.json().access_token;\r",
+							"            pm.collectionVariables.set(\"Temp.CommonUserAccessToken\", token);\r",
+							"            console.log(res);\r",
+							"        }\r",
+							")        "
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "377469a5-a7be-4b8e-9936-2a1825e69cd4",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "With admin user Autorization",
+			"item": [
+				{
+					"name": "Unauthorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6247bf0-2196-4d17-85df-7968f582d3b1",
+								"exec": [
+									"pm.test(\"Sending  admin authorized request to unauthorized endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "8db43d6b-459e-4860-af33-ab317037d7b1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseApiUrl}}/test"
+					},
+					"response": []
+				},
+				{
+					"name": "Authorization Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending admin authorized request to authorized endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "57c9abed-a6e3-470d-b538-1275fa5b7171",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseApiUrl}}/test/authorized"
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Endpoint",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dfedc28f-8d84-4be1-a98f-b4ff29b22f45",
+								"exec": [
+									"pm.test(\"Sending admin authorized request to admin endpoint should return 200\", function(){\r",
+									"    pm.response.to.have.status(200);\r",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "56ca6ce0-df8a-4482-bbdd-26c0b97e9629",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseApiUrl}}/test/admin"
+					},
+					"response": []
+				}
+			],
+			"id": "6fc6e1a7-8fb6-4018-a016-d9db9e4b2eee",
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "{{Temp.AmdinUserAccessToken}}"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "db7dd22c-c44f-4187-80d9-f12498fb1321",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"pm.sendRequest(\r",
+							"        {\r",
+							"            url: pm.environment.get(\"IsTokenUrl\"),\r",
+							"            method: 'post',\r",
+							"            header: {\r",
+							"                'Content-Type': 'application/x-www-form-urlencoded'\r",
+							"            },\r",
+							"            body: {\r",
+							"                mode: 'urlencoded',\r",
+							"                urlencoded: [\r",
+							"                    { key: 'client_id', value: pm.environment.get('ClientId') },\r",
+							"                    { key: 'client_secret', value: pm.environment.get('ClientSecret') },\r",
+							"                    { key: 'grant_type', value: 'password' },\r",
+							"                    { key: 'username', value: pm.environment.get('AdminLogin') },\r",
+							"                    { key: 'password', value: pm.environment.get('AdminPassword') }\r",
+							"                ]\r",
+							"            }\r",
+							"        },\r",
+							"        function (err, res) {\r",
+							"            const token = res.json().access_token;\r",
+							"            pm.collectionVariables.set(\"Temp.AmdinUserAccessToken\", token);\r",
+							"            console.log(res);\r",
+							"        }\r",
+							")        "
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe3176c6-1059-4acb-bc58-5b72ef58c179",
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Cleanup",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f4ae5e76-06a9-49e0-8d90-7ced64426456",
+						"exec": [
+							"var variables = pm.collectionVariables.toObject();\r",
+							"var tempVariableNames = _.keys(variables).filter(x => x.startsWith('Temp.'));\r",
+							"tempVariableNames.forEach(tempVarName => pm.collectionVariables.unset(tempVarName));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b5d691df-20e4-4171-add7-a6bb06b67228",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "CLEANUP",
+				"header": [],
+				"url": "{{BaseUrl}}/cleanup"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": {
+			"addTokenTo": "header"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "0f5b983d-e6c4-4d90-b9f2-65203421d065",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "92c351db-b3e8-49e6-bbd5-37fc2f625d7c",
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "My.Variable",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
